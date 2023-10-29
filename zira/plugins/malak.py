@@ -1,7 +1,8 @@
 import os
 import asyncio
 from pathlib import Path
-import telethon
+
+from telethon.utils import get_input_entity
 from telethon.tl.types import InputMessagesFilterDocument
 
 from ..Config import Config
@@ -13,9 +14,9 @@ plugin_category = "الادوات"
 
 if Config.ZELZAL_A:
     async def install():
-        channel = await zedub.get_entity(Config.ZELZAL_A)
+        zilzal = await zedub.get_entity(Config.ZELZAL_A)
         documentss = await zedub.get_messages(
-            Config.ZELZAL_A, None, filter=InputMessagesFilterDocument
+            zilzal, None, filter=InputMessagesFilterDocument
         )
         total = int(documentss.total)
         for module in range(total):
