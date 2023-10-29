@@ -2,7 +2,7 @@ import os
 import asyncio
 from pathlib import Path
 
-from telethon.utils import get_input_entity
+from telethon.tl.functions.users import GetUsersRequest
 from telethon.tl.types import InputMessagesFilterDocument
 
 from ..Config import Config
@@ -14,7 +14,7 @@ plugin_category = "الادوات"
 
 if Config.ZELZAL_A:
     async def install():
-        zilzal = await zedub.get_input_entity(Config.ZELZAL_A)
+        zilzal = await zedub.get_entity(Config.ZELZAL_A)
         documentss = await zedub.get_messages(
             zilzal, None, filter=InputMessagesFilterDocument
         )
