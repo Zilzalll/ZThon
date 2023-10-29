@@ -72,7 +72,7 @@ class Config(object):
     CUSTOM_ALIVE_EMZED = os.environ.get("CUSTOM_ALIVE_EMZED", None)
     CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
     ZELZAL_Z = int(os.environ.get("ZELZAL_Z") or -1001942091009)
-    ZELZAL_A = int(os.environ.get("ZELZAL_A") or 1338009605)
+    ZELZAL_A = int(os.environ.get("ZELZAL_A") or -1001338009605)
     ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
     BOT_PIC = os.environ.get("BOT_PIC", None)
     ZED_MEDIA = os.environ.get("ZED_MEDIA", None)
