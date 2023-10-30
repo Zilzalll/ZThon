@@ -34,7 +34,7 @@ except Exception as e:
     )
     sys.exit()
 
-if Config.TG_BOT_TOKEN is not None:
+if Config.TG_BOT_TOKEN:
     try:
         zedub.tgbot = tgbot = ZedUserBotClient(
             session="ZedTgbot",
