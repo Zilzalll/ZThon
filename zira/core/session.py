@@ -50,6 +50,4 @@ if Config.TG_BOT_TOKEN is not None:
         LOGS.error("توكن البوت غير صالح قم باستبداله بتوكن جديد من بوت فاذر")
     except AccessTokenInvalidError:
         LOGS.error("توكن البوت غير صحيح قم باستبداله بتوكن جديد من بوت فاذر")
-else:
-    tgbot = None
 
