@@ -24,13 +24,12 @@ try:
 except Exception as e:
     LOGS.error(f"- {e}")
 
-if Config.TG_BOT_TOKEN is None:
-    try:
-        LOGS.info("⌭ بـدء إنشـاء البـوت التلقـائـي ⌭")
-        zedub.loop.run_until_complete(mybot())
-        LOGS.info("✓ تـم إنشـاء البـوت والتوكـن .. بـنجـاح ✓")
-    except Exception as e:
-        LOGS.error(f"- {e}")
+try:
+    LOGS.info("⌭ بـدء إنشـاء البـوت التلقـائـي ⌭")
+    zedub.loop.run_until_complete(mybot())
+    LOGS.info("✓ تـم إنشـاء البـوت والتوكـن .. بـنجـاح ✓")
+except Exception as e:
+    LOGS.error(f"- {e}")
 
 if not Config.ALIVE_NAME:
     try:
