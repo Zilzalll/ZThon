@@ -218,7 +218,7 @@ async def autoname():
     )
     LOGS.info("جـارِ إنشـاء البـوت التلقـائـي مـن بـوت فـاذر .. انتظـر قليـلاً")
     zelzal = await bot.get_me()
-    zzname = f"{zelzal.first_zzname}"
+    zzname = f"{zelzal.first_name}"
     await bot.send_message(
         BOTLOG_CHATID,
         f"**- تم اضافـة اسـم المستخـدم {zzname} .. بنجـاح**",
