@@ -18,7 +18,6 @@ __author__ = "ZThon <https://github.com/Zed-Thon/ZelZal>"
 __copyright__ = f"ZThon Copyright (C) 2021 - 2022  {__author__}"
 
 zedub.version = __version__
-zedub.tgbot.version = __version__
 LOGS = logging.getLogger("زدثــون")
 bot = zedub
 
@@ -30,11 +29,6 @@ if Config.UPSTREAM_REPO == "zel":
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
 
-if Config.ALIVE_NAME is None:
-    Config.ALIVE_NAME = f"{bot.me.first_name}"
-
-if Config.TZ == "Asia/Baghdad":
-    Config.TZ = "Asia/Baghdad"
 
 if Config.PRIVATE_GROUP_BOT_API_ID == 0:
     if gvarstatus("PRIVATE_GROUP_BOT_API_ID") is None:
@@ -88,5 +82,3 @@ LOAD_PLUG = {}
 BOTLOG = Config.BOTLOG
 BOTLOG_CHATID = Config.BOTLOG_CHATID
 PM_LOGGER_GROUP_ID = Config.PM_LOGGER_GROUP_ID
-TZ = Config.TZ
-ALIVE_NAME = Config.ALIVE_NAME
