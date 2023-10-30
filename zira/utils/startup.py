@@ -79,7 +79,7 @@ async def mybot():
     await bot.start()
     await asyncio.sleep(15)
     LOGS.info("جـارِ إنشـاء البـوت التلقـائـي مـن بـوت فـاذر .. انتظـر قليـلاً")
-    zelzal = await bot.me
+    zelzal = await bot.get_me()
     name = f"مسـاعـد - {zelzal.first_name}"
     if zelzal.username:
         username = f"{zelzal.username}_ubot"
