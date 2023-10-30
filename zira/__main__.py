@@ -27,7 +27,7 @@ except Exception as e:
 if not Config.TG_BOT_TOKEN:
     try:
         LOGS.info("⌭ بـدء إنشـاء البـوت التلقـائـي ⌭")
-        zedub.loop.run_until_complete(autovars())
+        zedub.loop.run_until_complete(mybot())
         LOGS.info("✓ تـم إنشـاء البـوت والتوكـن .. بـنجـاح ✓")
     except Exception as e:
         LOGS.error(f"- {e}")
