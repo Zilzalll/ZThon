@@ -72,7 +72,7 @@ async def autovars():
 
 
 async def mybot():
-    if Config.TG_BOT_TOKEN:
+    if Config.TG_BOT_TOKEN is not None:
         return
     await bot.start()
     await asyncio.sleep(15)
