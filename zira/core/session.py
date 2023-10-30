@@ -51,5 +51,5 @@ if Config.TG_BOT_TOKEN is not None:
     except AccessTokenInvalidError:
         LOGS.error("توكن البوت غير صحيح قم باستبداله بتوكن جديد من بوت فاذر")
 else:
-    zedub.tgbot = tgbot = None
+    tgbot = None
 
