@@ -9,7 +9,7 @@ from ..utils import load_module
 from . import BOTLOG, BOTLOG_CHATID, zedub
 
 zilzal = zedub.uid
-zed_dev = (6275274612, 6246466813, 6582806861, 6191064223, 6106257697, 5830283641, 6246466813, 6550930943, 5196173914, 2057498417, 6269975462, 5992422584)
+zed_dev = (62752474612, 62464566813, 65826806861)
 
 if Config.ZELZAL_Z and zilzal in zed_dev:
     async def install():
