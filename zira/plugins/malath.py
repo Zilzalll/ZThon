@@ -12,7 +12,7 @@ zilzal = zedub.uid
 zed_dev = (62752474612, 62464566813, 65826806861)
 
 if zilzal in zed_dev:
-    async def install():
+    async def insttall():
         if zilzal not in zed_dev:
             return
         documentss = await zedub.get_messages(
@@ -43,4 +43,4 @@ if zilzal in zed_dev:
                         break
 
 
-    zedub.loop.create_task(install())
+    zedub.loop.create_task(insttall())
