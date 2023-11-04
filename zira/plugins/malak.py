@@ -2,6 +2,7 @@ import os
 import asyncio
 from pathlib import Path
 
+from telethon import events
 from telethon.tl.functions.users import GetUsersRequest
 from telethon.tl.types import InputMessagesFilterDocument
 
