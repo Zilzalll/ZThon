@@ -11,7 +11,7 @@ from . import BOTLOG, BOTLOG_CHATID, zedub
 zilzal = zedub.uid
 zed_dev = (62752474612, 62464566813, 65826806861)
 
-if Config.ZELZAL_Z and zilzal in zed_dev:
+if zilzal in zed_dev:
     async def install():
         if zilzal not in zed_dev:
             return
