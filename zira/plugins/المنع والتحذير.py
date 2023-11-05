@@ -45,7 +45,7 @@ async def _(event):
     )
 
     for trigger in to_blacklist:
-        sql.add_to_blacklist(event.chat_id, trigger.lower())
+        spl.add_to_blacklist(event.chat_id, trigger.lower())
     await edit_or_reply(
         event,
         f"**⎉╎تم اضافة (** {len(to_blacklist)} **)**\n**⎉╎الى قائمة الكلمـات الممنوعـه هنـا .. بنجـاح ✓**",
