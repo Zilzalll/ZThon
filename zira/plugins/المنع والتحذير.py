@@ -84,6 +84,21 @@ async def _(event):
         OUT_STR = "**⎉╎لم يتم اضافة كلمـات ممنوعـة هنـا بعـد ؟!**"
     await edit_or_reply(event, OUT_STR)
 
+
+@zedub.zed_cmd(
+    pattern="قائمه المنع$",
+    require_admin=True,
+)
+async def _(event):
+    all_blacklisted = spl.get_chat_blacklist(event.chat_id)
+    OUT_STR = "**⎉╎قائمة الكلمـات الممنوعـه هنـا هـي :\n**"
+    if len(all_blacklisted) > 0:
+        for trigger in all_blacklisted:
+            OUT_STR += f"- {trigger} \n"
+    else:
+        OUT_STR = "**⎉╎لم يتم اضافة كلمـات ممنوعـة هنـا بعـد ؟!**"
+    await edit_or_reply(event, OUT_STR)
+
 # ================================================================================================ #
 # =========================================التحذيرات================================================= #
 # ================================================================================================ #
