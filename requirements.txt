@@ -50,7 +50,6 @@ pymediainfo
 PyMuPDF
 pyquery==2.0.0
 pySmartDL
-py-tgcalls==1.0.0
 python-barcode
 python-dotenv
 pytube==15.0.0
