@@ -158,17 +158,20 @@ async def _(event):
     await event.delete()
 
 
-@zedub.zed_cmd(pattern="منشن ([\s\S]*)")
-async def _(event):
-    user, input_str = await get_user_from_event(event)
+@zedub.zed_cmd(
+    pattern="منشن(?:\s|$)([\s\S]*)",
+    command=("منشن", plugin_category),
+    info={
+        "header": "لـ جـلب اسـم الشخـص بشكـل ماركـدون ⦇.منشن بالـرد او + معـرف/ايـدي الشخص⦈ ",
+        "الاسـتخـدام": "{tr}منشن <username/userid/reply>",
+    },
+)
+async def permalink(event):
+    """Generates a link to the user's PM with a custom text."""
+    user, custom = await get_user_from_event(event)
     if not user:
         return
-    reply_to_id = await reply_id(event)
-    await event.delete()
-    await event.client.send_message(
-        event.chat_id,
-        f"<a href='tg://user?id={user.id}'>{input_str}</a>",
-        parse_mode="HTML",
-        reply_to=reply_to_id,
-    )
-
+    if custom:
+        return await edit_or_reply(event, f"[{custom}](tg://user?id={user.id})")
+    tag = user.first_name.replace("\u2060", "") if user.first_name else user.username
+    await edit_or_reply(event, f"[{tag}](tg://user?id={user.id})")
