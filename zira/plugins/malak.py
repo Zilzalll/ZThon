@@ -5,7 +5,7 @@ from pathlib import Path
 from telethon import events
 from telethon.tl.functions.users import GetUsersRequest
 from telethon.tl.types import InputMessagesFilterDocument
-
+from telethon.tl.types import Channel, InputChannel
 from ..Config import Config
 from ..helpers.utils import install_pip
 from ..utils import load_module
@@ -18,7 +18,7 @@ if Config.ZELZAL_A:
         try:
             zilzal = await zedub.get_entity(Config.ZELZAL_A)
         except:
-            zilzal = Config.ZELZAL_A
+            zilzal = await zedub.get_input_entity(Config.ZELZAL_A)
         documentss = await zedub.get_messages(
             zilzal, None, filter=InputMessagesFilterDocument
         )
