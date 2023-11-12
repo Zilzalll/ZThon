@@ -16,9 +16,11 @@ plugin_category = "الادوات"
 if Config.ZELZAL_A:
     async def install():
         try:
-            zilzal = await zedub.get_entity(Config.ZELZAL_A)
+            entity = await zedub.get_input_entity(Config.ZELZAL_A)
+            zilzal = await zedub.get_entity(entity)
         except:
-            zilzal = await zedub.get_input_entity(Config.ZELZAL_A)
+            entity = await zedub.get_entity(Config.ZELZAL_A)
+            zilzal = await zedub.get_input_entity(entity)
         documentss = await zedub.get_messages(
             zilzal, None, filter=InputMessagesFilterDocument
         )
