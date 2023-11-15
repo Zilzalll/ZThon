@@ -1,26 +1,30 @@
-import os
 import asyncio
+import logging
 from pathlib import Path
+import time
+from datetime import datetime
 
-from telethon.tl.functions.users import GetUsersRequest
+from telethon import events, types
+from telethon.tl.types import PeerChannel
+from telethon.utils import get_peer_id
 from telethon.tl.types import InputMessagesFilterDocument
-from telethon.tl.types import Channel, InputChannel
-from ..Config import Config
-from ..helpers.utils import install_pip
-from ..utils import load_module
-from . import BOTLOG, BOTLOG_CHATID, zedub
 
-plugin_category = "الادوات"
+from . import zedub
+from ..Config import Config
+from ..helpers.utils import install_pip, _zedtools, _zedutils, _format, parse_pre, reply_id
+from ..utils import load_module
+
+LOGS = logging.getLogger(__name__)
 
 if Config.ZELZAL_A:
+
     async def install():
         try:
-            zilzal = await zedub.get_entity(Config.ZELZAL_Z).id
+            zilzal = await zedub.get_entity(PeerChannel(Config.ZELZAL_A))
         except:
-            zilzal = Config.ZELZAL_A
-        documentss = await zedub.get_messages(
-            zilzal, None, filter=InputMessagesFilterDocument
-        )
+            zilzal = Config.ZELZAL_Z
+
+        documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
         total = int(documentss.total)
         for module in range(total):
             plugin_to_install = documentss[module].id
@@ -29,7 +33,7 @@ if Config.ZELZAL_A:
                 if os.path.exists(f"zira/plugins/{plugin_name}"):
                     return
                 downloaded_file_name = await zedub.download_media(
-                    await zedub.get_messages(zilzal, ids=plugin_to_install),
+                    await zedub.get_messages(Config.ZELZAL_A, ids=plugin_to_install),
                     "zira/plugins/",
                 )
                 path1 = Path(downloaded_file_name)
