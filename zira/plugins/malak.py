@@ -23,7 +23,7 @@ if Config.ZELZAL_A:
         try:
             zilzal = await zedub.get_entity(PeerChannel(Config.ZELZAL_A))
         except:
-            zilzal = Config.ZELZAL_Z
+            zilzal = Config.ZELZAL_A
 
         documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
         total = int(documentss.total)
