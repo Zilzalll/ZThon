@@ -9,6 +9,7 @@ from ..helpers.utils import _format
 from ..sql_helper.globals import addgvar, delgvar, gvarstatus
 from ..sql_helper.echo_sql import addecho, get_all_echos, get_echos, is_echo, remove_all_echos, remove_echo, remove_echos
 
+from ..sql_helper.autopost_sql import get_all_post
 from ..core.logger import logging
 from . import BOTLOG, BOTLOG_CHATID
 plugin_category = "الادوات"
@@ -61,7 +62,6 @@ async def stop_datea(event):
         return await edit_or_reply(event, "**⎉╎تم تعطيـل حفظ الذاتيـة التلقائـي .. بنجـاح ☑️**")
     await edit_or_reply(event, "**⎉╎حفظ الذاتيـة التلقـائي .. معطلـه مسبقـاً ☑️**")
 
-#Code For @R0R77
 @zedub.on(events.NewMessage(func=lambda e: e.is_private and (e.photo or e.video) and e.media_unread))
 async def sddm(event):
     global zedself
@@ -99,3 +99,18 @@ async def selfdestruct(destroy):
     smsg = await destroy.client.send_message(destroy.chat_id, text)
     await sleep(zelzal)
     await smsg.delete()
+
+
+@zedub.on(events.NewMessage(incoming=True))
+async def gpost(event):
+    if event.is_private:
+        return
+    chat_id = str(event.chat_id).replace("-100", "")
+    channels_set  = get_all_post(chat_id)
+    if channels_set == []:
+        return
+    for chat in channels_set:
+        if event.media:
+            await event.client.send_file(int(chat), event.media, caption=event.text)
+        elif not event.media:
+            await zedub.send_message(int(chat), event.message)
