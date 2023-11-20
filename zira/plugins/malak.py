@@ -22,13 +22,10 @@ if Config.ZELZAL_A:
     async def install():
         try:
             zilzal = await zedub.get_entity(PeerChannel(Config.ZELZAL_A))
-            documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
-            total = int(documentss.total)
-        except:
+        except ValueError:
             zilzal = Config.ZELZAL_A
-            documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
-            total = int(documentss.total)
-
+        documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
+        total = int(documentss.total)
         for module in range(total):
             plugin_to_install = documentss[module].id
             plugin_name = documentss[module].file.name
