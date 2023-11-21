@@ -16,14 +16,11 @@ from ..helpers.utils import install_pip, _zedtools, _zedutils, _format, parse_pr
 from ..utils import load_module
 
 LOGS = logging.getLogger(__name__)
+zilzal = Config.ZELZAL_A
 
 if Config.ZELZAL_A:
 
     async def install():
-        try:
-            zilzal = await zedub.get_entity(PeerChannel(Config.ZELZAL_A))
-        except ValueError:
-            zilzal = Config.ZELZAL_A
         documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
         total = int(documentss.total)
         for module in range(total):
