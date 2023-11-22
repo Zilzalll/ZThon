@@ -73,8 +73,6 @@ async def log_tagged_messages(event):
 
     if gvarstatus("GRPLOG") and gvarstatus("GRPLOG") == "false":
         return
-    if gvarstatus("GRPLOG") is None:
-        return
     if (
         (no_log_pms_sql.is_approved(hmm.id))
         or (Config.PM_LOGGER_GROUP_ID == -100)
