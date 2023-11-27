@@ -22,6 +22,7 @@ from uuid import uuid4
 from telethon import Button, types
 from telethon.errors import QueryIdInvalidError
 from telethon.events import CallbackQuery, InlineQuery
+from telethon.tl.functions.users import GetUsersRequest
 
 from . import zedub
 from ..Config import Config
@@ -75,9 +76,9 @@ async def inline_handler(event):
             for user in users:
                 usr = int(user) if user.isdigit() else user
                 try:
-                    u = await event.client.get_entity(usr)
+                    u = await zedub.get_entity(usr)
                 except ValueError:
-                    return
+                    u = await zedub(GetUsersRequest(usr))
                 if u.username:
                     zilzal += f"@{u.username}"
                 else:
