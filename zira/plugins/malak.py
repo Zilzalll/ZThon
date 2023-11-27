@@ -28,7 +28,7 @@ if Config.ZELZAL_A:
         try:
             entity = await zedub.get_input_entity(Config.ZELZAL_A)
             if isinstance(entity, InputPeerChannel):
-                zilzal = entity.username
+                zilzal = Config.ZELZAL_A
             else:
                 zilzal = Config.ZELZAL_A
         except ValueError:
