@@ -32,8 +32,8 @@ async def monito_p_m_s(event):  # sourcery no-metrics
         return
     if gvarstatus("PMLOG") and gvarstatus("PMLOG") == "false":
         return
+    sender = await event.get_sender()
     if not sender.bot:
-        sender = await event.get_sender()
         chat = await event.get_chat()
         if not no_log_pms_sql.is_approved(chat.id) and chat.id != 777000:
             if LOG_CHATS_.RECENT_USER != chat.id:
