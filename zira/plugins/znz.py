@@ -29,7 +29,6 @@ from ..Config import Config
 from ..helpers import reply_id
 from ..sql_helper.globals import gvarstatus
 from ..core.logger import logging
-from ..core import check_owner, pool
 from ..helpers.utils import _format
 from . import mention
 
@@ -59,7 +58,7 @@ async def inline_handler(event):
         malathid = Config.OWNER_ID
     elif query_user_id == user_id:
         malathid = user_id
-    if query_user_id == Config.OWNER_ID or query_user_id == user_id or query_user_id in Config.SUDO_USERS:  # Code by T.me/zzzzl1l
+    if query_user_id == Config.OWNER_ID or query_user_id == user_id or query_user_id == int(user_id) or query_user_id in Config.SUDO_USERS:  # Code by T.me/zzzzl1l
         inf = re.compile("secret (.*) (.*)")
         match2 = re.findall(inf, query)
         if match2:
