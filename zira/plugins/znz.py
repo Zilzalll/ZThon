@@ -56,7 +56,7 @@ async def inline_handler(event):
         zelzal = f"[{full_name}](tg://user?id={user_id})"
     if query_user_id == Config.OWNER_ID or query_user_id in Config.SUDO_USERS:  # Code by T.me/zzzzl1l
         malathid = Config.OWNER_ID
-    elif query_user_id == user_id:
+    elif query_user_id == user_id or query_user_id == int(user_id):
         malathid = user_id
     if query_user_id == Config.OWNER_ID or query_user_id == user_id or query_user_id == int(user_id) or query_user_id in Config.SUDO_USERS:  # Code by T.me/zzzzl1l
         inf = re.compile("secret (.*) (.*)")
