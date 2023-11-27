@@ -3,6 +3,7 @@ import os
 import re
 
 from telethon.events import CallbackQuery
+from telethon.tl.functions.users import GetUsersRequest
 
 from zira import zedub
 from ..sql_helper.globals import gvarstatus
@@ -14,9 +15,9 @@ async def on_plug_in_callback_query_handler(event):
     uzerid = gvarstatus("hmsa_id")
     ussr = int(uzerid) if uzerid.isdigit() else uzerid
     try:
-        zzz = await event.client.get_entity(ussr)
+        zzz = await zedub.get_entity(ussr)
     except ValueError:
-        return
+        zzz = await zedub(GetUsersRequest(ussr))
     if os.path.exists("./zira/secret.txt"):
         jsondata = json.load(open("./zira/secret.txt"))
         try:
@@ -27,9 +28,9 @@ async def on_plug_in_callback_query_handler(event):
                 encrypted_tcxt = message["text"]
                 reply_pop_up_alert = encrypted_tcxt
             else:
-                reply_pop_up_alert = "مطـي الهمسـه مـو الك 🧑🏻‍🦯🦓"
+                reply_pop_up_alert = "مطـي الهمسـه مـو الك 🦓"
         except KeyError:
-            reply_pop_up_alert = "- عـذراً .. هذه الرسـالة لم تعد موجـوده في سيـرفرات زدثــون"
+            reply_pop_up_alert = "- عـذراً .. هذه الرسـالة لم تعد موجـوده في البوت"
     else:
-        reply_pop_up_alert = "- عـذراً .. هذه الرسـالة لم تعد موجـوده في سيـرفرات زدثــون"
+        reply_pop_up_alert = "- عـذراً .. هذه الرسـالة لم تعد موجـوده في البـوت"
     await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
