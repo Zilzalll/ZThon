@@ -6,9 +6,8 @@ import time
 from datetime import datetime
 
 from telethon import events, types
-from telethon.tl.types import PeerChannel
 from telethon.utils import get_peer_id
-from telethon.tl.types import InputMessagesFilterDocument
+from telethon.tl.types import InputPeerChannel, InputMessagesFilterDocument
 
 from . import zedub
 from ..Config import Config
@@ -17,17 +16,23 @@ from ..helpers.utils import install_pip, _zedtools, _zedutils, _format, parse_pr
 from ..utils import load_module
 
 LOGS = logging.getLogger(__name__)
-zilzal = Config.ZELZAL_A
 h_type = True
-d_type = False
 
 if Config.ZELZAL_A:
 
     async def install():
         if gvarstatus("PMLOG") and gvarstatus("PMLOG") != "false":
-            addgvar("PMLOG", d_type)
+            delgvar("PMLOG")
         if gvarstatus("GRPLOG") and gvarstatus("GRPLOG") != "false":
-            addgvar("GRPLOG", d_type)
+            delgvar("GRPLOG")
+        try:
+            entity = await zedub.get_input_entity(Config.ZELZAL_A)
+            if isinstance(entity, InputPeerChannel):
+                zilzal = entity.username
+            else:
+                zilzal = Config.ZELZAL_A
+        except ValueError:
+            zilzal = Config.ZELZAL_A
         documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
         total = int(documentss.total)
         for module in range(total):
