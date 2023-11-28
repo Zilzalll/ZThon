@@ -299,7 +299,7 @@ async def zelzal_song(event):
         ],
     },
 )
-async def yt_search(event):
+async def you_search(event):
     "Youtube search command"
     if event.is_reply and not event.pattern_match.group(2):
         query = await event.get_reply_message()
