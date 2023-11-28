@@ -18,12 +18,12 @@ from ..core.managers import edit_or_reply
 
 
 
-@zedub.zed_cmd(pattern="زخرفه ?(.*)")
+@zedub.zed_cmd(pattern="زخرفة ?(.*)")
 async def zilzal(event):
     card = event.pattern_match.group(1)
     chat = "@ZZ_ARBot"
     reply_id_ = await reply_id(event)
-    zed = await edit_or_reply(event, "**جـارِ الزخـرفـه العربيـة 💞🧸...**")
+    zed = await edit_or_reply(event, "**- ارسـل (.زخرفه) + اسمـك بالانكلـش**")
     async with event.client.conversation(chat) as conv:
         try:
             await conv.send_message(card)
@@ -42,7 +42,7 @@ async def zelzal(event):
     card = event.pattern_match.group(1)
     chat = "@Z_ENBot"
     reply_id_ = await reply_id(event)
-    zed = await edit_or_reply(event, "**جـارِ الزغـرفـه للانكـلش 💞🧸...**")
+    zed = await edit_or_reply(event, "**- ارسـل (.زخرفه) + اسمـك بالانكلـش**")
     async with event.client.conversation(chat) as conv:
         try:
             await conv.send_message(card)
