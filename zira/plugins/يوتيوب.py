@@ -162,7 +162,7 @@ async def vsong(event):
     try:
         await event.client.send_file(
             event.chat_id,
-            song_file,
+            vsong_file,
             caption=f"**⎉╎البحث :** `{title}`",
             thumb=zedthumb,
             supports_streaming=True,
