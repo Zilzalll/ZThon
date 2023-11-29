@@ -174,8 +174,11 @@ async def get_playlist(event):
 )
 async def play_video(event):
     "لـ تشغيـل مقـاطع الفيـديـو في المكـالمـات"
+    con = event.pattern_match.group(1).lower()
     flag = event.pattern_match.group(1)
     input_str = event.pattern_match.group(2)
+    if con == "فيديو":
+        return
     if input_str == "" and event.reply_to_msg_id:
         input_str = await tg_dl(event)
     if not input_str:
