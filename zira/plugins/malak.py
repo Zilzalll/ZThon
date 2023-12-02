@@ -31,13 +31,13 @@ if Config.ZELZAL_A:
                 full_info = await zedub(functions.channels.GetFullChannelRequest(
                     channel=entity
                 ))
-            zilzal = full_info
+            zilzal = full_info.full_chat.id
         except Exception as e:
             entity = await zedub.get_entity(Config.ZELZAL_A)
             full_info = await zedub(functions.channels.GetFullChannelRequest(
                 channel=entity
             ))
-            zilzal = full_info
+            zilzal = full_info.full_chat.id
         documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
         total = int(documentss.total)
         for module in range(total):
