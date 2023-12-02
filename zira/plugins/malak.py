@@ -33,8 +33,9 @@ if Config.ZELZAL_A:
                 ))
             zilzal = full_info.id
         except Exception as e:
+            entity = await zedub.get_entity(Config.ZELZAL_A)
             full_info = await zedub(functions.channels.GetFullChannelRequest(
-                channel=Config.ZELZAL_A
+                channel=entity
             ))
             zilzal = full_info.id
         documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
