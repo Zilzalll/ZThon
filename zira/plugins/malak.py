@@ -33,7 +33,10 @@ if Config.ZELZAL_A:
                 ))
             zilzal = full_info.id
         except Exception as e:
-            zilzal = Config.ZELZAL_A
+            full_info = await zedub(functions.channels.GetFullChannelRequest(
+                channel=Config.ZELZAL_A
+            ))
+            zilzal = full_info.id
         documentss = await zedub.get_messages(zilzal, None, filter=InputMessagesFilterDocument)
         total = int(documentss.total)
         for module in range(total):
