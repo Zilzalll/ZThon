@@ -40,7 +40,7 @@ async def amireallyalive(event):
     _, check_sgnirts = check_data_base_heal_th()
     if gvarstatus("z_date") is not None:
         zzd = gvarstatus("z_date")
-        zzt = gvarstatus("z_date")
+        zzt = gvarstatus("z_time")
         zedda = f"{zzd}┊{zzt}"
     else:
         zedda = f"{bt.year}/{bt.month}/{bt.day}"
