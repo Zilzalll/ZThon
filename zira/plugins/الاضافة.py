@@ -114,28 +114,3 @@ async def _(event):
                 return await edit_delete(event, f"`{e}`", 5)
 
     await edit_or_reply(event, f"**{to_add_users} تم اضافته بنجاح ✓**")
-
-
-@zedub.on(admin_cmd(pattern=r"ضيف ?(.*)"))
-async def get_users(event):   
-    sender = await event.get_sender() ; me = await event.client.get_me()
-    if not sender.id == me.id:
-        zedb = await event.reply("**⎉╎ جـارِ إتمـام العمليـة إنتظـر ⅏ . . .**")
-    else:
-        zedb = await event.edit("**⎉╎ جـارِ إتمـام العمليـة إنتظـر ⅏ . . .**")
-    zira = await get_chatinfo(event) ; chat = await event.get_chat()
-    if event.is_private:
-              return await zedb.edit("**╮  لا استطـيع اضافـة الاعضـاء هـنا 𓅫╰**")
-    s = 0 ; f = 0 ; error = 'None'   
-  
-    await zedb.edit("**⎉╎حـالة الأضافة:**\n\n**⎉╎تتـم جـمع معـلومات الـمستخدمين 🔄 ...⏣**")
-    async for user in event.client.iter_participants(zira.full_chat.id):
-                try:
-                    if error.startswith("Too"):
-                        return await zedb.edit(f"**حـالة الأضـافة انتـهت مـع الأخـطاء**\n- (**ربـما هـنالك ضغـط عـلى الأمࢪ حاول مجـدداً لاحقـا 🧸**) \n**الـخطأ** : \n`{error}`\n\n• اضـافة `{s}` \n• خـطأ بأضافـة `{f}`"),
-                    await event.client(functions.channels.InviteToChannelRequest(channel=chat,users=[user.id]))
-                    s = s + 1                                                    
-                    await zedb.edit(f"**⎉╎تتـم الأضـافة 🧸♥**\n\n• اضـيف `{s}` \n•  خـطأ بأضافـة `{f}` \n\n**× اخـر خـطأ:** `{error}`") 
-                except Exception as e:
-                    error = str(e) ; f = f + 1             
-    return await zedb.edit(f"**⎉╎اڪتـملت الأضافـة ✅** \n\n• تـم بنجـاح اضافـة `{s}` \n• خـطأ بأضافـة `{f}`")
