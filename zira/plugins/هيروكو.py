@@ -205,11 +205,11 @@ async def variable(var):  # sourcery no-metrics
 
 
 @zedub.zed_cmd(
-    pattern="استخدامي$",
-    command=("استخدامي", plugin_category),
+    pattern="اسستخدامي$",
+    command=("اسستخدامي", plugin_category),
     info={
         "header": "لـ عـرض سـاعـات استخـدامك الكـليـه والمتبقيـه",
-        "الاسـتخـدام": "{tr}استخدامي",
+        "الاسـتخـدام": "{tr}اسستخدامي",
     },
 )
 async def dyno_usage(dyno):
