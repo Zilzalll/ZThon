@@ -9,7 +9,7 @@ So تخمـط الملـف اهينك واطشك للناس خماط واوثق 
 Copyright (C) 2023 Zilzalll . All Rights Reserved
 Credit: https://github.com/Zilzalll/ZThon
 Devloper: https://t.me/zzzzl1l - زلــزال الهيبــه"""
-import json
+"""import json
 import math
 import asyncio
 import os
@@ -120,3 +120,4 @@ async def inline_handler(event):
                 ),
             )
             await event.answer(results)
+"""
