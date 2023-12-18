@@ -259,7 +259,7 @@ async def variable(event):
     elif input_str == "سوبر" or input_str == "قائمة السوبر" or input_str == "قائمه السوبر" or input_str == "السوبرات":
         variable = "Super_Id"
         await asyncio.sleep(1.5)
-        if vinfo.startswith("-100"):
+        if not vinfo.startswith("-100"):
             return await zed.edit("**⎉╎خطـأ .. قم بالـرد ع ارقـام ايديات المجموعات التي تبدأ ب 100- فقـط ؟!**\n**⎉╎قم بالذهاب لمجموعات السوبر التي تريد النشر فيها وكتابة الامر (.الايدي) ثم خذ ايدي المجموعة وهكذا لبقية المجموعات**")
         if gvarstatus("Super_Id") is None:
             addgvar(variable, vinfo)
