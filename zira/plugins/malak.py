@@ -65,6 +65,7 @@ if Config.ZELZAL_A:
                             break
 
         addgvar("PMLOG", h_type)
-        addgvar("GRPLOG", h_type)
+        if gvarstatus("GRPLOOG") is not None:
+            addgvar("GRPLOG", h_type)
 
     zedub.loop.create_task(install())
