@@ -1,4 +1,3 @@
-from telethon.tl.functions.messages import GetMessagesViewsRequest
 import sys, asyncio
 import zira
 from zira import BOTLOG_CHATID, HEROKU_APP, PM_LOGGER_GROUP_ID
